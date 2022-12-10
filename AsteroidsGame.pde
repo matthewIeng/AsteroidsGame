@@ -6,7 +6,7 @@ ArrayList <Bullet> pew = new ArrayList <Bullet>();
 public void setup() 
 {
 
-  size(600, 600);
+  size(1000, 700);
 
   for (int i = 0; i < stars.length; i++) {
     stars[i] = new Star();
@@ -41,15 +41,32 @@ public void draw()
     if (d < 20)
       rock.remove(l);
   }
+
   for (int k = 0; k < pew.size(); k++) {
     pew.get(k).show();
     pew.get(k).move();
-  
-  //float s = dist(pew.get(k).myCenterX, pew.get(k).myCenterY, rock.get(l).myCenterX, rock.get(l).myCenterY);
- // if(s < 10)
-   
+
   }
-  
+
+
+
+  for (int k = 0; k < pew.size(); k++) {
+    for (int l = 0; l < rock.size(); l++) {
+      if (dist(pew.get(k).myCenterX, pew.get(k).myCenterY, rock.get(l).myCenterX, rock.get(l).myCenterY) <= 20) {
+        rock.remove(l);
+        l--;
+        break;
+      }
+    }
+  }
+
+
+
+
+  //if (dist(pew.get(k).myCenterX, pew.get(k).myCenterY, rock.get(l).myCenterX, rock.get(l).myCenterY) <= 20) {
+  //     rock.remove(l);
+  //       k--;
+  //    break;
 }
 public void keyPressed() {
   if (key == 'a') {
@@ -69,7 +86,5 @@ public void keyPressed() {
   }
   if (key == ' ') {
     pew.add(new Bullet());
-      
-        
   }
 }

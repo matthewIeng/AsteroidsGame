@@ -30,13 +30,6 @@ public void draw()
     s = false; }
   for(int i = 0; i < starryNight.length; i++)
   starryNight[i].show();
-  for(int i = 0; i < belt.size(); i++){
-  belt.get(i).move();
-  belt.get(i).show();
-  float d = dist((float)(bob.getX()), (float)(bob.getY()), (float)(belt.get(i).getmyCenterX()), (float)(belt.get(i).getmyCenterY()));
-    if (d < 20){
-      belt.remove(i);
-}
   }
 }
 

@@ -11,8 +11,6 @@ public void setup()
   size(500,500);
   for(int i = 0; i < starryNight.length; i++)
   starryNight[i] = new Star();
-for(int i = 0; i < 6; i++)
-belt.add(new Asteroid());
 }
 public void draw() 
 {

@@ -1,3 +1,4 @@
+ArrayList <Asteroid> belt = new ArrayList <Asteroid>();
 Spaceship bob = new Spaceship(); 
 Star[] starryNight = new Star[100];
 boolean w = false;

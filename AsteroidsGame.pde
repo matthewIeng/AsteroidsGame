@@ -45,7 +45,7 @@ public void draw()
   }
   for(int i = 0; i < bullets.size(); i++) {
   bullets.get(i).move();
-  bullets.get(i).accelerate(0.6);
+  bullets.get(i).accelerate(0.2);
   bullets.get(i).show();
   float s = dist((float)(bullets.get(i).getX()), (float)(bullets.get(i).getY()), (float)(belt.get(i).getmyCenterX()), (float)(belt.get(i).getmyCenterY()));
     if (s < 20){
@@ -53,7 +53,7 @@ public void draw()
       bullets.remove(i);
       break;
                }
-   if(bullets.get(i).getX() >= 500 || bullets.get(i).getY() <= 0){
+   if(bullets.get(i).getX() >= 498 || bullets.get(i).getY() <= 2){
    bullets.remove(i);
    break;
    }

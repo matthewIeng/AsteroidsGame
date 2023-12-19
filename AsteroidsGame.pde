@@ -1,18 +1,20 @@
 ArrayList <Asteroid> belt = new ArrayList <Asteroid>();
+ArrayList <Bullet> bullets = new ArrayList <Bullet>();
+
 Spaceship bob = new Spaceship(); 
 Star[] starryNight = new Star[100];
 boolean w = false;
 boolean a = false;
 boolean d = false;
 boolean s = false;
-
+boolean j = false;
 public void setup() 
 {
   size(500,500);
   for(int i = 0; i < starryNight.length; i++)
   starryNight[i] = new Star();
 
-for(int i = 0; i < 6; i++) {
+for(int i = 0; i < 10; i++) {
 Asteroid asteroid = new Asteroid();
 belt.add(asteroid);
 }
@@ -41,8 +43,22 @@ public void draw()
       belt.remove(i);
 }
   }
+  for(int i = 0; i < bullets.size(); i++) {
+  bullets.get(i).move();
+  bullets.get(i).accelerate(0.6);
+  bullets.get(i).show();
+  float s = dist((float)(bullets.get(i).getX()), (float)(bullets.get(i).getY()), (float)(belt.get(i).getmyCenterX()), (float)(belt.get(i).getmyCenterY()));
+    if (s < 20){
+      belt.remove(i);
+      bullets.remove(i);
+      break;
+               }
+   if(bullets.get(i).getX() >= 500 || bullets.get(i).getY() <= 0){
+   bullets.remove(i);
+   break;
+   }
 }
-
+}
 public void keyPressed() 
 { 
   if (key == 'w')
@@ -53,8 +69,11 @@ public void keyPressed()
     d = true;
   if (key == 's')
     s = true;
+  if (key == 'j') {
+    Bullet f = new Bullet(bob);
+    bullets.add(f);
 }
-
+}
 public void keyReleased() {
   if (key == 'w')
     w = false;
